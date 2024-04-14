@@ -48,6 +48,10 @@ func (f *FileInfo) Equals(other Object) Object {
 	return False
 }
 
+func (f *FileInfo) Attrs() []string {
+	return []string{"name", "size", "mod_time", "mode", "is_dir"}
+}
+
 func (f *FileInfo) GetAttr(name string) (Object, bool) {
 	switch name {
 	case "name":

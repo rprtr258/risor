@@ -80,6 +80,10 @@ func (r *Regexp) Cost() int {
 	return 0
 }
 
+func (r *Regexp) Attrs() []string {
+	return []string{"match", "find", "find_all", "find_submatch", "replace_all", "split"}
+}
+
 func (r *Regexp) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "match":

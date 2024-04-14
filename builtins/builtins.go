@@ -507,6 +507,18 @@ func GetAttr(ctx context.Context, args ...object.Object) object.Object {
 		args[0].Type(), attrName)
 }
 
+func ListAttr(ctx context.Context, args ...object.Object) object.Object {
+	if err := arg.RequireRange("listattr", 1, 1, args); err != nil {
+		return err
+	}
+	attrs := args[0].Attrs()
+	m := make(map[string]object.Object, len(attrs))
+	for _, k := range attrs {
+		m[k], _ = args[0].GetAttr(k)
+	}
+	return object.NewMap(m)
+}
+
 func Call(ctx context.Context, args ...object.Object) object.Object {
 	if err := arg.RequireRange("call", 1, 64, args); err != nil {
 		return err
@@ -882,6 +894,7 @@ func Builtins() map[string]object.Object {
 		"keys":        object.NewBuiltin("keys", Keys),
 		"len":         object.NewBuiltin("len", Len),
 		"list":        object.NewBuiltin("list", List),
+		"listattr":    object.NewBuiltin("listattr", ListAttr),
 		"make":        object.NewBuiltin("make", Make),
 		"map":         object.NewBuiltin("map", Map),
 		"ord":         object.NewBuiltin("ord", Ord),

@@ -53,6 +53,10 @@ func (app *App) SetAttr(name string, value object.Object) error {
 	return fmt.Errorf("attribute error: %s object has no attribute %q", APP, name)
 }
 
+func (app *App) Attrs() []string {
+	return []string{"name", "usage", "run", "commands"}
+}
+
 func (app *App) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "name":

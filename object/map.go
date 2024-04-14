@@ -57,6 +57,17 @@ func (m *Map) SetAttr(name string, value Object) error {
 	return nil
 }
 
+func (m *Map) Attrs() []string {
+	res := []string{}
+	for k := range m.items {
+		res = append(res, k)
+	}
+	for _, k := range []string{"keys", "values", "get", "clear", "copy", "items", "pop", "setdefault", "update"} {
+		res = append(res, k)
+	}
+	return res
+}
+
 func (m *Map) GetAttr(name string) (Object, bool) {
 	switch name {
 	case "keys":

@@ -95,6 +95,8 @@ type Object interface {
 	// GetAttr returns the attribute with the given name from this object.
 	GetAttr(name string) (Object, bool)
 
+	Attrs() []string
+
 	// SetAttr sets the attribute with the given name on this object.
 	SetAttr(name string, value Object) error
 

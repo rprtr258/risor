@@ -69,6 +69,10 @@ func (m *FileMode) Equals(other Object) Object {
 	return False
 }
 
+func (m *FileMode) Attrs() []string {
+	return []string{"is_dir", "is_regular", "perm", "type"}
+}
+
 func (m *FileMode) GetAttr(name string) (Object, bool) {
 	switch name {
 	case "is_dir":

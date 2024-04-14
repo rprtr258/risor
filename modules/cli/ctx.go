@@ -52,6 +52,10 @@ func (c *Ctx) SetAttr(name string, value object.Object) error {
 	return fmt.Errorf("attribute error: %s object has no attribute %q", CTX, name)
 }
 
+func (c *Ctx) Attrs() []string {
+	return []string{"args", "narg", "value", "count", "flag_names", "local_flag_names", "is_set", "set", "num_flags", "bool", "int", "string", "string_slice"}
+}
+
 func (c *Ctx) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "args":

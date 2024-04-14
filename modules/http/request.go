@@ -75,6 +75,10 @@ func (r *HttpRequest) SetAttr(name string, value object.Object) error {
 	return nil
 }
 
+func (r *HttpRequest) Attrs() []string {
+	return []string{"url", "content_length", "header", "path_value", "send", "add_header", "add_cookie", "set_body", "set_data"}
+}
+
 func (r *HttpRequest) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "url":

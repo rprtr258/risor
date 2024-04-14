@@ -31,6 +31,10 @@ func (c *Command) Value() *exec.Cmd {
 	return c.value
 }
 
+func (c *Command) Attrs() []string {
+	return []string{"path", "dir", "env", "stdout", "stderr", "run", "combined_output", "environ", "output", "start", "wait"}
+}
+
 func (c *Command) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "path":

@@ -47,6 +47,10 @@ func (d *DirEntry) Equals(other Object) Object {
 	return False
 }
 
+func (d *DirEntry) Attrs() []string {
+	return []string{"name", "type", "is_dir", "info"}
+}
+
 func (d *DirEntry) GetAttr(name string) (Object, bool) {
 	switch name {
 	case "name":

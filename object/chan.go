@@ -55,6 +55,10 @@ func (c *Chan) SetAttr(name string, value Object) error {
 	return fmt.Errorf("attribute error: %s object has no attribute %q", CHANNEL, name)
 }
 
+func (c *Chan) Attrs() []string {
+	return []string{"send", "receive", "close"}
+}
+
 func (c *Chan) GetAttr(name string) (Object, bool) {
 	switch name {
 	case "send":

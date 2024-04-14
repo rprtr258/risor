@@ -57,6 +57,10 @@ func (db *Template) SetAttr(name string, value object.Object) error {
 	return fmt.Errorf("attribute error: %s object has no attribute %q", TEMPLATE, name)
 }
 
+func (t *Template) Attrs() []string {
+	return []string{"delims", "parse", "add", "execute_template", "execute"}
+}
+
 func (t *Template) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "delims":

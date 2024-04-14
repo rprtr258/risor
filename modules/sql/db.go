@@ -65,6 +65,10 @@ func (db *DB) SetAttr(name string, value object.Object) error {
 	return fmt.Errorf("attribute error: %s object has no attribute %q", DB_CONN, name)
 }
 
+func (db *DB) Attrs() []string {
+	return []string{"query", "exec", "close"}
+}
+
 func (db *DB) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "query":

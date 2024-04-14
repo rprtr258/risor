@@ -42,6 +42,10 @@ func (s *String) HashKey() HashKey {
 	return HashKey{Type: s.Type(), StrValue: s.value}
 }
 
+func (s *String) Attrs() []string {
+	return []string{"contains", "has_prefix", "has_suffix", "count", "join", "split", "fields", "index", "last_index", "replace_all", "to_lower", "to_upper", "trim", "trim_prefix", "trim_space", "trim_suffix"}
+}
+
 func (s *String) GetAttr(name string) (Object, bool) {
 	switch name {
 	case "contains":

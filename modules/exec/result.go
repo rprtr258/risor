@@ -23,6 +23,10 @@ func (r *Result) Inspect() string {
 	return fmt.Sprintf("exec.result(pid: %d)", r.cmd.Process.Pid)
 }
 
+func (r *Result) Attrs() []string {
+	return []string{"pid", "stdout", "stderr", "json"}
+}
+
 func (r *Result) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "pid":

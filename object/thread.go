@@ -55,6 +55,10 @@ func (t *Thread) SetAttr(name string, value Object) error {
 	return fmt.Errorf("attribute error: %s object has no attribute %q", THREAD, name)
 }
 
+func (t *Thread) Attrs() []string {
+	return []string{"wait"}
+}
+
 func (t *Thread) GetAttr(name string) (Object, bool) {
 	switch name {
 	case "wait":

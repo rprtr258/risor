@@ -55,6 +55,10 @@ func (f *Flag) SetAttr(name string, value object.Object) error {
 	return nil
 }
 
+func (f *Flag) Attrs() []string {
+	return append(f.value.Names(), "names", "is_set", "string")
+}
+
 func (f *Flag) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "names":

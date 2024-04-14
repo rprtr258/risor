@@ -36,6 +36,10 @@ func (img *Image) Value() image.Image {
 	return img.image
 }
 
+func (img *Image) Attrs() []string {
+	return []string{"width", "height", "dimensions", "bounds", "at"}
+}
+
 func (img *Image) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "width":

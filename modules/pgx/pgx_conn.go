@@ -47,6 +47,10 @@ func (c *PgxConn) IsTruthy() bool {
 	return true
 }
 
+func (c *PgxConn) Attrs() []string {
+	return []string{"query", "execute", "close"}
+}
+
 func (c *PgxConn) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "query":

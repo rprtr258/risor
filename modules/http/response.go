@@ -41,6 +41,10 @@ func (r *HttpResponse) SetAttr(name string, value object.Object) error {
 	return fmt.Errorf("attribute error: %s object has no attribute %q", HTTP_RESPONSE, name)
 }
 
+func (r *HttpResponse) Attrs() []string {
+	return []string{"status", "status_code", "proto", "content_length", "header", "cookies", "response", "json", "text", "close"}
+}
+
 func (r *HttpResponse) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "status":

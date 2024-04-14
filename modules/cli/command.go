@@ -146,6 +146,10 @@ func (c *Command) SetAttr(name string, value object.Object) error {
 	return nil
 }
 
+func (c *Command) Attrs() []string {
+	return []string{"action", "flags", "name", "aliases", "usage", "usage_text", "description", "args", "args_usage", "category", "hide_help", "hide_help_command", "hidden", "use_short_option_handling", "help_name", "custom_help_template", "subcommands"}
+}
+
 func (c *Command) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "action":

@@ -32,6 +32,10 @@ func (w *ResponseWriter) SetAttr(name string, value object.Object) error {
 	return fmt.Errorf("attribute error: %s object has no attribute %q", RESPONSE_WRITER, name)
 }
 
+func (w *ResponseWriter) Attrs() []string {
+	return []string{"add_header", "del_header", "write", "write_header"}
+}
+
 func (w *ResponseWriter) GetAttr(name string) (object.Object, bool) {
 	switch name {
 	case "add_header":
